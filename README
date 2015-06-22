@@ -1,0 +1,15 @@
+This project illustrates a C implementation of the incremental mixture importance sampling algorithm (Raftery, Bao. Biometrics, 2010.; http://cran.r-project.org/web/packages/IMIS/index.html), relying on the GNU Scientfic Library (GSL; http://www.gnu.org/software/gsl/).
+
+Compilation of the code requires linking to the GSL libraries (-lgsl -lgslcblas) and uses OpenMP to parallelise the IMIS algorithm, see 'code/makefile'.
+
+Sampling from a tri-modal bivariate normal mixture distribution is used as an example (main.c, trimodal.R). 
+
+To compile and run C implementation:
+
+- Run makefile: $ make 
+- Run example: $ ./trimodal-parallel
+- Load and analyse output in R script trimodal.R
+
+Note: In makefile, update C compiler from gcc-4.8 to any compiler that supports -fopenmp flag. Or compile version without -fopenmp flag to compile single processor version.
+
+The script trimodal.R illustrates that the C implementation produces the same results as the R implementation available from CRAN.
